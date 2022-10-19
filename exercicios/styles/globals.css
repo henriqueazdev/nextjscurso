@@ -1,7 +1,21 @@
-html, body {
+html,
+body {
   padding: 0;
   margin: 0;
   left: 0;
   top: 0;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
+}
+
+input {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px 0 20px 20px;
+  width: 100px;
+  border: 1px solid gray;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid darkslategray;
 }
