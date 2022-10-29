@@ -1,4 +1,4 @@
-import styles from "../../../styles/Megasena.module.css";
+import styles from "../../styles/Megasena.module.css";
 
 interface NumeroProps {
   numero: number;

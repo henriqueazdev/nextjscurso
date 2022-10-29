@@ -1,15 +1,15 @@
 import { useRouter } from "next/router";
 import { ChangeEvent, useEffect, useState } from "react";
+import Inicio from "../../componentes/shared/Inicio";
 import Tarefa from "../../domain/tarefa";
 import {
-  getTarefa,
-  getTodasTarefas,
-  updateTarefa,
+  obterTodasTarefas,
+  atualizarTarefa,
 } from "../../services/todo-storage";
 import { eNuloOuUndefined } from "../../utils";
 
 export default function Todo() {
-  const [tarefas, setTarefas] = useState<Array<Tarefa>>([]);
+  const [tarefas, setTarefas] = useState<Tarefa[]>([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function Todo() {
   }, []);
 
   const carregarInformacoes = () => {
-    const tarefasRegistradas: Array<Tarefa> | undefined = getTodasTarefas();
+    const tarefasRegistradas: Tarefa[] | undefined = obterTodasTarefas();
 
     if (eNuloOuUndefined(tarefasRegistradas)) {
       setTarefas([]);
@@ -34,9 +34,17 @@ export default function Todo() {
   ) => {
     tarefa.status = ev.target.checked;
 
-    updateTarefa(tarefa);
+    atualizarTarefa(tarefa);
 
     carregarInformacoes();
+  };
+
+  const redirecionarParaNovaTarefa = () => {
+    router.push("/todo/nova-tarefa");
+  };
+
+  const redirecionarParaEditarTarefa = (id: string) => {
+    router.push(`/todo/${id}`);
   };
 
   const todasTarefas = tarefas.map((tarefa, i) => (
@@ -47,12 +55,11 @@ export default function Todo() {
         onChange={(ev) => concluirTarefa(ev, tarefa)}
       />
       {tarefa.descricao}
+      <button onClick={() => redirecionarParaEditarTarefa(tarefa.id as string)}>
+        Editar
+      </button>
     </li>
   ));
-
-  const redirecionarParaNovaTarefa = () => {
-    router.push("/todo/nova-tarefa");
-  };
 
   return (
     <>
@@ -62,6 +69,8 @@ export default function Todo() {
           <ul>{todasTarefas}</ul>
         </div>
         <button onClick={redirecionarParaNovaTarefa}>Nova tarefa</button>
+        <br />
+        <Inicio />
       </div>
     </>
   );

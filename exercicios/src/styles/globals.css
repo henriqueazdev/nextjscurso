@@ -19,3 +19,19 @@ input:focus {
   outline: none;
   border: 1px solid darkslategray;
 }
+
+a {
+  color: gray;
+  cursor: pointer;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.centralizado {
+  justify-content: center;
+  align-items: center;
+}

@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import Botao from "../../componentes/contador/Botao";
 import Input from "../../componentes/contador/Input";
+import Inicio from "../../componentes/shared/Inicio";
 
 export default function DesafioContador() {
   const [valorInput, setValorInput] = useState<number>(0);
@@ -29,6 +30,7 @@ export default function DesafioContador() {
       <Input valor={valorInput} toggle={toggleInput} label="Contador" />
       <Botao acao={somar}>+</Botao>
       <Botao acao={subtrair}>-</Botao>
+      <Inicio />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import styles from "../../../styles/Contador.module.css";
+import styles from "../../styles/Contador.module.css";
 
 interface InputProps {
   valor: number;

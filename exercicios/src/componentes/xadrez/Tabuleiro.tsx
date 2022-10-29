@@ -1,4 +1,4 @@
-import styles from "../../../styles/Xadrez.module.css";
+import styles from "../../styles/Xadrez.module.css";
 import Linha from "./Linha";
 
 export default function Tabuleiro() {

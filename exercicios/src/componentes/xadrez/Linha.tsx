@@ -1,4 +1,4 @@
-import styles from "../../../styles/Xadrez.module.css";
+import styles from "../../styles/Xadrez.module.css";
 import Casa from "./Casa";
 
 interface LinhaProps {

@@ -1,7 +1,7 @@
 import Tarefa from "../domain/tarefa";
 import { eNuloOuUndefined } from "../utils";
 
-export function newTarefa(tarefa: Tarefa): void {
+export function novaTarefa(tarefa: Tarefa): void {
   const novoId = (localStorage.length + 1).toString();
 
   tarefa.id = novoId;
@@ -9,13 +9,13 @@ export function newTarefa(tarefa: Tarefa): void {
   localStorage.setItem(novoId, JSON.stringify(tarefa));
 }
 
-export function updateTarefa(tarefa: Tarefa): void {
+export function atualizarTarefa(tarefa: Tarefa): void {
   if (eNuloOuUndefined(tarefa.id)) return;
 
   localStorage.setItem(tarefa.id, JSON.stringify(tarefa));
 }
 
-export function getTarefa(id: string): Tarefa | undefined {
+export function obterTarefa(id: string): Tarefa | undefined {
   const tarefa = localStorage.getItem(id);
 
   if (eNuloOuUndefined(tarefa)) return;
@@ -23,7 +23,7 @@ export function getTarefa(id: string): Tarefa | undefined {
   return JSON.parse(tarefa);
 }
 
-export function getTodasTarefas(): Array<Tarefa> | undefined {
+export function obterTodasTarefas(): Array<Tarefa> | undefined {
   if (localStorage.length === 0) return;
 
   let tarefas: Array<Tarefa> = [];

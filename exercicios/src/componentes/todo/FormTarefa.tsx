@@ -1,18 +1,20 @@
 import { useRouter } from "next/router";
 import { ChangeEvent } from "react";
-import { newTarefa } from "../../services/todo-storage";
+import { atualizarTarefa, novaTarefa } from "../../services/todo-storage";
 
 interface PropsFormTarefa {
   handleDescricao: (ev: ChangeEvent<HTMLInputElement>) => void;
   descricao: string;
+  id?: string;
 }
 
 export default function FormTarefa(props: PropsFormTarefa) {
-  const { handleDescricao, descricao } = props;
+  const { handleDescricao, descricao, id } = props;
   const router = useRouter();
 
   const salvarTarefa = () => {
-    newTarefa({ descricao, status: false });
+    if (id) atualizarTarefa({ descricao, status: false, id });
+    else novaTarefa({ descricao, status: false });
 
     router.push("/todo");
   };

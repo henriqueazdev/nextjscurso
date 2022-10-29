@@ -1,3 +1,5 @@
+import Inicio from "../../componentes/shared/Inicio";
+
 export default function Lista() {
   let lista: any[] = [];
 
@@ -5,5 +7,10 @@ export default function Lista() {
     lista.push(<span key={x}>{x}</span>);
   }
 
-  return <>{lista}</>;
+  return (
+    <>
+      {lista}
+      <Inicio />
+    </>
+  );
 }

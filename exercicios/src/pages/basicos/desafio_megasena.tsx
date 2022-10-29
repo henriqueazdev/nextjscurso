@@ -2,6 +2,7 @@ import { ChangeEvent, useState } from "react";
 import Botao from "../../componentes/megasena/Botao";
 import Input from "../../componentes/megasena/Input";
 import Numero from "../../componentes/megasena/Numero";
+import Inicio from "../../componentes/shared/Inicio";
 import styles from "../../styles/Megasena.module.css";
 
 function gerarNumerosAleatorios(quantidade: number): number[] {
@@ -56,6 +57,7 @@ export default function Megasena() {
           Quantidade de números a serem gerados
         </Input>
         <Botao acao={gerarNumeros} />
+        <Inicio />
       </div>
     </div>
   );

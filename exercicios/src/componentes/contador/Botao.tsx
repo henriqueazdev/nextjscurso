@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import styles from "../../../styles/Contador.module.css";
+import styles from "../../styles/Contador.module.css";
 
 interface BotaoProps extends PropsWithChildren {
   acao: () => void;
