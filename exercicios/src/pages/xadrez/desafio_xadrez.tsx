@@ -1,5 +1,5 @@
 import styles from "../../styles/Xadrez.module.css";
-import Tabuleiro from "../../src/componentes/xadrez/Tabuleiro";
+import Tabuleiro from "../../componentes/xadrez/Tabuleiro";
 
 export default function Xadrez() {
   return (

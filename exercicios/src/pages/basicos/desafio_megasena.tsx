@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
-import Botao from "../../src/componentes/megasena/Botao";
-import Input from "../../src/componentes/megasena/Input";
-import Numero from "../../src/componentes/megasena/Numero";
+import Botao from "../../componentes/megasena/Botao";
+import Input from "../../componentes/megasena/Input";
+import Numero from "../../componentes/megasena/Numero";
 import styles from "../../styles/Megasena.module.css";
 
 function gerarNumerosAleatorios(quantidade: number): number[] {

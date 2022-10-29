@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
-import Botao from "../../src/componentes/contador/Botao";
-import Input from "../../src/componentes/contador/Input";
+import Botao from "../../componentes/contador/Botao";
+import Input from "../../componentes/contador/Input";
 
 export default function DesafioContador() {
   const [valorInput, setValorInput] = useState<number>(0);
