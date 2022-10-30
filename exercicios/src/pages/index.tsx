@@ -1,23 +1,20 @@
 import type { NextPage } from "next";
-import { useRouter } from "next/router";
+import Link from "next/link";
+import LayoutPadrao from "../componentes/shared/LayoutPadrao";
 
 const Home: NextPage = () => {
-  const router = useRouter();
-
-  const redirecionar = (rota: string) => {
-    router.push(rota);
-  };
-
   return (
-    <>
+    <LayoutPadrao>
       <div>
         Rotas
         <ul>
           <li>
             api
             <ul>
-              <li>
-                <a onClick={() => redirecionar("/api/hello")}>hello</a>
+              <li className="ml-1">
+                <Link href="/api/hello" passHref>
+                  hello
+                </Link>
               </li>
             </ul>
           </li>
@@ -25,43 +22,47 @@ const Home: NextPage = () => {
           <li>
             basicos
             <ul>
-              <li>
-                <a onClick={() => redirecionar("/basicos/desafio_contador")}>
+              <li className="ml-1">
+                <Link href="/basicos/desafio_contador" passHref>
                   desafio_contador
-                </a>
+                </Link>
               </li>
-              <li>
-                <a onClick={() => redirecionar("/basicos/desafio_lista")}>
+              <li className="ml-1">
+                <Link href="/basicos/desafio_lista" passHref>
                   desafio_lista
-                </a>
+                </Link>
               </li>
-              <li>
-                <a onClick={() => redirecionar("/basicos/desafio_megasena")}>
+              <li className="ml-1">
+                <Link href="/basicos/desafio_megasena" passHref>
                   desafio_megasena
-                </a>
+                </Link>
               </li>
-              <li>
-                <a onClick={() => redirecionar("/basicos/desafio_xadrez")}>
+              <li className="ml-1">
+                <Link href="/basicos/desafio_xadrez" passHref>
                   desafio_xadrez
-                </a>
+                </Link>
               </li>
-              <li>
-                <a onClick={() => redirecionar("/basicos/primeiro")}>
+              <li className="ml-1">
+                <Link href="/basicos/primeiro" passHref>
                   primeiro
-                </a>
+                </Link>
               </li>
-              <li>
-                <a onClick={() => redirecionar("/basicos/segundo")}>segundo</a>
+              <li className="ml-1">
+                <Link href="/basicos/segundo" passHref>
+                  segundo
+                </Link>
               </li>
             </ul>
           </li>
 
           <li>
-            <a onClick={() => redirecionar("/todo")}>todo</a>
+            <Link href="/todo" passHref>
+              todo
+            </Link>
           </li>
         </ul>
       </div>
-    </>
+    </LayoutPadrao>
   );
 };
 

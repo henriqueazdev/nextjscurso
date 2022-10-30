@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { ChangeEvent, useEffect, useState } from "react";
+import LayoutPadrao from "../../componentes/shared/LayoutPadrao";
 import FormTarefa from "../../componentes/todo/FormTarefa";
 import { obterTarefa } from "../../services/todo-storage";
 import { eNuloOuUndefined } from "../../utils";
@@ -19,18 +20,18 @@ export default function Editararefa() {
 
       setDescricao(tarefa?.descricao as string);
     }
-  }, []);
+  }, [idQuery]);
 
   const handleDescricao = (ev: ChangeEvent<HTMLInputElement>) => {
     setDescricao(ev.target.value);
   };
 
-  const redirecionarParaInicio = () => {
+  const redirecionarParaTodo = () => {
     router.push("/todo");
   };
 
   return (
-    <>
+    <LayoutPadrao>
       <div>
         <FormTarefa
           descricao={descricao}
@@ -39,8 +40,8 @@ export default function Editararefa() {
         />
       </div>
       <div>
-        <button onClick={redirecionarParaInicio}>Voltar</button>
+        <button onClick={redirecionarParaTodo}>Voltar</button>
       </div>
-    </>
+    </LayoutPadrao>
   );
 }

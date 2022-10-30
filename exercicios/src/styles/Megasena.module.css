@@ -1,6 +1,6 @@
 .megasena {
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,19 +34,4 @@
   justify-content: center;
   align-items: center;
   margin: 10px;
-}
-
-.botao {
-  margin: 10px;
-  padding: 10px;
-  border-radius: 20px 20px 20px 0;
-  width: 100px;
-  border: 1px solid rgb(63, 62, 62);
-  background-color: gray;
-  cursor: pointer;
-}
-
-.botao:hover {
-  border: 1px solid gray;
-  background-color: rgb(63, 62, 62);
 }

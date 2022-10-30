@@ -5,7 +5,7 @@ export default function Tabuleiro() {
   let linhas = [];
 
   for (let i: number = 1; i <= 8; i++) {
-    linhas.push(<Linha par={i % 2 == 0}></Linha>);
+    linhas.push(<Linha par={i % 2 == 0} key={i}></Linha>);
   }
 
   return <div className={styles.tabuleiro}>{linhas}</div>;

@@ -10,7 +10,7 @@ export default function Linha(props: LinhaProps) {
   let casas: any[] = [];
 
   for (let i: number = 1; i <= 8; i++) {
-    casas.push(<Casa par={i % 2 == 0}></Casa>);
+    casas.push(<Casa par={i % 2 == 0} key={i}></Casa>);
   }
 
   return (

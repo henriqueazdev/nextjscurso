@@ -2,7 +2,8 @@ import { ChangeEvent, useState } from "react";
 import Botao from "../../componentes/megasena/Botao";
 import Input from "../../componentes/megasena/Input";
 import Numero from "../../componentes/megasena/Numero";
-import Inicio from "../../componentes/shared/Inicio";
+import LayoutPadrao from "../../componentes/shared/LayoutPadrao";
+import Inicio from "../../componentes/shared/LayoutPadrao";
 import styles from "../../styles/Megasena.module.css";
 
 function gerarNumerosAleatorios(quantidade: number): number[] {
@@ -41,24 +42,25 @@ export default function Megasena() {
   };
 
   return (
-    <div className={styles.megasena}>
-      <div className={styles.container}>
-        {numeros.length > 0 ? (
-          <>
-            <h1 style={{ textAlign: "center" }}>Números gerados</h1>
-            <div className={styles.containerNumeros}>
-              {numeros.map((numero) => (
-                <Numero numero={numero} key={numero} />
-              ))}
-            </div>
-          </>
-        ) : null}
-        <Input valor={qtdASerGerada} toggleValor={toggleQtdASerGerada}>
-          Quantidade de números a serem gerados
-        </Input>
-        <Botao acao={gerarNumeros} />
-        <Inicio />
+    <LayoutPadrao centralizado>
+      <div className={styles.megasena}>
+        <div className={styles.container}>
+          {numeros.length > 0 ? (
+            <>
+              <h1 style={{ textAlign: "center" }}>Números gerados</h1>
+              <div className={styles.containerNumeros}>
+                {numeros.map((numero) => (
+                  <Numero numero={numero} key={numero} />
+                ))}
+              </div>
+            </>
+          ) : null}
+          <Input valor={qtdASerGerada} toggleValor={toggleQtdASerGerada}>
+            Quantidade de números a serem gerados
+          </Input>
+          <Botao acao={gerarNumeros} />
+        </div>
       </div>
-    </div>
+    </LayoutPadrao>
   );
 }

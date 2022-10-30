@@ -2,39 +2,75 @@ import Tarefa from "../domain/tarefa";
 import { eNuloOuUndefined } from "../utils";
 
 export function novaTarefa(tarefa: Tarefa): void {
-  const novoId = (localStorage.length + 1).toString();
+  let tarefas: Tarefa[] = obterTodasTarefas() ?? [];
+
+  let novoId: string = (obterUltimoId(tarefas) + 1).toString();
 
   tarefa.id = novoId;
 
-  localStorage.setItem(novoId, JSON.stringify(tarefa));
+  tarefas.push(tarefa);
+
+  localStorage.setItem("tarefas", JSON.stringify(tarefas));
 }
 
 export function atualizarTarefa(tarefa: Tarefa): void {
   if (eNuloOuUndefined(tarefa.id)) return;
 
-  localStorage.setItem(tarefa.id, JSON.stringify(tarefa));
+  let tarefasStorage: Tarefa[] | undefined = obterTodasTarefas();
+
+  if (eNuloOuUndefined(tarefasStorage)) return;
+
+  if (tarefasStorage.some((t: Tarefa) => t.id === tarefa.id)) {
+    tarefasStorage[
+      tarefasStorage.findIndex((t: Tarefa) => t.id === tarefa.id)
+    ] = tarefa;
+  }
+  localStorage.setItem("tarefas", JSON.stringify(tarefasStorage));
+}
+
+export function removerTarefa(tarefa: Tarefa): void {
+  if (eNuloOuUndefined(tarefa.id)) return;
+
+  let tarefasStorage: Tarefa[] | undefined = obterTodasTarefas();
+
+  if (eNuloOuUndefined(tarefasStorage)) return;
+
+  if (tarefasStorage.some((t: Tarefa) => t.id === tarefa.id)) {
+    tarefasStorage.splice(
+      tarefasStorage.findIndex((t: Tarefa) => t.id === tarefa.id),
+      1
+    );
+  }
+
+  localStorage.setItem("tarefas", JSON.stringify(tarefasStorage));
 }
 
 export function obterTarefa(id: string): Tarefa | undefined {
-  const tarefa = localStorage.getItem(id);
+  const tarefasStorage: Tarefa[] | undefined = obterTodasTarefas();
+
+  if (eNuloOuUndefined(tarefasStorage)) return;
+
+  const tarefa: Tarefa | undefined = tarefasStorage.filter(
+    (t: Tarefa) => t.id === id
+  )[0];
 
   if (eNuloOuUndefined(tarefa)) return;
 
-  return JSON.parse(tarefa);
+  return tarefa;
 }
 
-export function obterTodasTarefas(): Array<Tarefa> | undefined {
+export function obterTodasTarefas(): Tarefa[] | undefined {
   if (localStorage.length === 0) return;
 
-  let tarefas: Array<Tarefa> = [];
+  const tarefasStorage: string | null = localStorage.getItem("tarefas");
 
-  for (let index = 1; index <= localStorage.length; index++) {
-    const tarefa = localStorage.getItem(index.toString());
+  if (eNuloOuUndefined(tarefasStorage)) return;
 
-    if (eNuloOuUndefined(tarefa)) return;
+  return JSON.parse(tarefasStorage);
+}
 
-    tarefas.push(JSON.parse(tarefa));
-  }
-
-  return tarefas;
+function obterUltimoId(tarefas: Tarefa[]): number {
+  return tarefas.length
+    ? parseInt(tarefas[tarefas.length - 1].id as string)
+    : 0;
 }

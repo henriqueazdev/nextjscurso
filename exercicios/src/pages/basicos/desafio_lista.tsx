@@ -1,4 +1,5 @@
-import Inicio from "../../componentes/shared/Inicio";
+import LayoutPadrao from "../../componentes/shared/LayoutPadrao";
+import Inicio from "../../componentes/shared/LayoutPadrao";
 
 export default function Lista() {
   let lista: any[] = [];
@@ -9,8 +10,7 @@ export default function Lista() {
 
   return (
     <>
-      {lista}
-      <Inicio />
+      <LayoutPadrao>{lista}</LayoutPadrao>
     </>
   );
 }

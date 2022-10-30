@@ -1,10 +1,5 @@
-import Inicio from "../../componentes/shared/Inicio";
+import LayoutPadrao from "../../componentes/shared/LayoutPadrao";
 
 export default function Segundo() {
-  return (
-    <>
-      Segundo componente, jsx {"teste"}
-      <Inicio />
-    </>
-  );
+  return <LayoutPadrao>Segundo componente, jsx {"teste"}</LayoutPadrao>;
 }
