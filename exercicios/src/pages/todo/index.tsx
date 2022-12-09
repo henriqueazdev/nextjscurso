@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { ChangeEvent, useEffect, useState } from "react";
 import LayoutPadrao from "../../componentes/shared/LayoutPadrao";
-import Tarefa from "../../domain/tarefa";
+import Tarefa from "../../domain/interface/tarefa";
 import {
   atualizarTarefa,
   obterTarefa,

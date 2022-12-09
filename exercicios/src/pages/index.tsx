@@ -60,6 +60,12 @@ const Home: NextPage = () => {
               todo
             </Link>
           </li>
+
+          <li>
+            <Link href="/montyhall" passHref>
+              montyhall
+            </Link>
+          </li>
         </ul>
       </div>
     </LayoutPadrao>

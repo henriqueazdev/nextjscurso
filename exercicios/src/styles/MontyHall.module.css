@@ -1,0 +1,106 @@
+.porta {
+  width: 100px;
+  height: 200px;
+  position: relative;
+  border: 5px solid brown;
+  background-color: chocolate;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.porta .numero {
+  margin-top: 10px;
+  font-size: 30pt;
+  color: brown;
+  cursor: pointer;
+  height: 50px;
+}
+
+.porta .macaneta {
+  position: absolute;
+  background-color: brown;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  top: 100px;
+  left: 10px;
+  cursor: pointer;
+}
+
+.porta.selecionada {
+  border: 3px solid yellow;
+}
+
+.porta.selecionada .numero {
+  color: yellow;
+}
+
+.porta.selecionada .macaneta {
+  background-color: yellow;
+}
+
+.porta.aberta {
+  background-color: black;
+}
+
+.porta .presente {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 20px;
+  bottom: 0;
+  background-color: red;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 50vh;
+  width: 100%;
+  min-height: 50vh;
+  height: 100%;
+}
+
+.menu .opcao {
+  padding: 5px;
+  margin: 5px;
+  width: 75px;
+  height: 75px;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  overflow-wrap: normal;
+  text-align: center;
+}
+
+.menu .opcao.verde {
+  background-color: chartreuse;
+  color: white;
+  cursor: pointer;
+}
+
+.menu .opcao.verde:hover {
+  background-color: forestgreen;
+}
+
+.menu .opcao.roxo {
+  background-color: blueviolet;
+  color: white;
+}
+
+.menu .opcao .botao {
+  cursor: pointer;
+  padding: 3px;
+  margin: 0 5px;
+  border: 1px solid black;
+  border-radius: 3px;
+  min-width: 20px;
+}

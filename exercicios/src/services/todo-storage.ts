@@ -1,4 +1,4 @@
-import Tarefa from "../domain/tarefa";
+import Tarefa from "../domain/interface/tarefa";
 import { eNuloOuUndefined } from "../utils";
 
 export function novaTarefa(tarefa: Tarefa): void {
